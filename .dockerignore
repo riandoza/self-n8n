@@ -1,0 +1,194 @@
+# n8n Docker Setup - Docker Ignore Rules
+# Optimize Docker build context and reduce image size
+
+# Version Control
+.git/
+.gitignore
+.gitattributes
+.gitmodules
+.github/
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+*.md
+docs/
+documentation/
+
+# Environment and Secrets (never include in Docker builds)
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+ssl/
+
+# Runtime Data (should be mounted as volumes, not copied)
+data/
+backup/
+logs/
+
+# Temporary and Cache Files
+tmp/
+temp/
+.cache/
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+*~
+
+# Editor and IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+.project
+.classpath
+.settings/
+
+# Node.js (if present)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+.yarn/
+
+# Testing and Coverage
+coverage/
+.nyc_output
+test/
+tests/
+spec/
+*.test.js
+*.spec.js
+
+# CI/CD Files
+.travis.yml
+.gitlab-ci.yml
+.github/
+Jenkinsfile
+azure-pipelines.yml
+.circleci/
+
+# Development Tools
+Makefile
+Dockerfile.dev
+docker-compose.dev.yml
+docker-compose.local.yml
+docker-compose.override.yml
+
+# Scripts (development and management scripts don't need to be in container)
+scripts/
+setup.sh
+manage.sh
+
+# Nginx Configuration (handled separately in nginx service)
+nginx/
+
+# Database Files (handled by postgres service)
+*.sql
+*.dump
+*.backup
+
+# Log Files
+*.log
+
+# Backup Files
+*.bak
+*.backup
+*.tar.gz
+*.zip
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Python (if any Python scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Go (if any Go binaries)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Rust (if any Rust components)
+target/
+Cargo.lock
+
+# Java (if any Java components)
+*.class
+*.jar
+*.war
+*.ear
+
+# Archives
+*.tar
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.rar
+*.7z
+
+# Large Media Files (shouldn't be in Docker images)
+*.iso
+*.img
+*.dmg
+*.vmdk
+
+# Monitoring Configuration (handled separately)
+prometheus/
+grafana/
+monitoring/
+
+# Kubernetes (not needed in container)
+*.yaml
+*.yml
+!docker-compose.yml
+k8s/
+kubernetes/
+
+# Terraform (infrastructure, not application)
+*.tf
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Local Development Overrides
+local/
+dev/
+development/
+
+# Performance Files
+*.prof
+*.trace
+*.out
+
+# Application Specific
+n8n-data/
+postgres-data/
+
+# Keep Essential Files (explicitly include what we need)
+!docker-compose.yml
+!Dockerfile
+!package.json
+!requirements.txt

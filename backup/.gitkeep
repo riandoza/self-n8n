@@ -1,0 +1,2 @@
+# Keep backup directory structure in git
+# Actual backup files are ignored for size and security
